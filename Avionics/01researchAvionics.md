@@ -1,6 +1,6 @@
 # Research on Avionics
 
-Avionics is rhe electrical system necessary for flight and driven by software to tell the rocket where it should go.
+Avionics is the electrical system necessary for flight and driven by software to tell the rocket where it should go.
 Avionics system could also be used to gather data from the sorrounding and send it to the base station for later analysis.
 
 ### Minor definition

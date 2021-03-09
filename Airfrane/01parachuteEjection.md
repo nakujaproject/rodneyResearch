@@ -1,8 +1,8 @@
 # Parachute Ejection
 
-This is how we will eject our parachute so that we can be able to recover our rocket after launch. There are many ways to recover the rocket mainly subdivided into pyrotechniques and non-pyrotechniques. I decided to use non-pyrotechniques are it is mainfly fault tolerant and easier to make.
+This is how we will eject our parachute so that we can be able to recover our rocket after launch. There are many ways to recover the rocket mainly subdivided into pyrotechniques and non-pyrotechniques. I decided to use non-pyrotechniques as it is mainfly fault tolerant and easier to make.
 
-One mechanism in **DetMech** which was developed to automatically detach a rocket from its parachute line based on the paogee of the rocket. It is designed to assist in recovering rockets stagged by their parachutes. This method utilizes the use of a servo motor to open and close the hatch in order to eject the parachute.
+One mechanism in **DetMech** which was developed to automatically detach a rocket from its parachute line based on the apogee of the rocket. It is designed to assist in recovering rockets stagged by their parachutes. This method utilizes the use of a servo motor to open and close the hatch in order to eject the parachute.
 
 Other mechanisms include :
 

@@ -8,7 +8,7 @@ Some basic procedures during preprocessing are:
 
 - The geometry and physical bounds of the problem can be defined using computer aided design (CAD). From there, data can be suitably processed (cleaned-up) and the fluid volume (or fluid domain) is extracted.
 - The volume occupied by the fluid is divided into discrete cells (the mesh). The mesh may be uniform or non-uniform, structured or unstructured, consisting of a combination of hexahedral, tetrahedral, prismatic, pyramidal or polyhedral elements.
-- The physical modeling is defined – for example, the equations of fluid motion + enthalpy + radiation + species conservation
+- Physical modeling is defined – for example, the equations of fluid motion + enthalpy + radiation + species conservation
 - Boundary conditions are defined. This involves specifying the fluid behaviour and properties at all bounding surfaces of the fluid domain. For transient problems, the initial conditions are also defined.
 - The simulation is started and the equations are solved iteratively as a steady-state or transient.
 - Finally, a postprocessor is used for the analysis and visualization of the resulting solution.
@@ -23,7 +23,7 @@ Laminar flow is characterized by smooth, steady fluid motion. Turbulent flow is 
 
 ![Reynolds number](img/reynoldsNumber.png)
 
-where is the density, V is the velocity and  is the viscosity. For Reynolds numbers greater than ~2500, the flow exhibits turbulent flow phenomena. Most engineering flows are turbulent.
+Where is the density, V is the velocity and U is the viscosity. For Reynolds numbers greater than ~2500, the flow exhibits turbulent flow phenomena. Most engineering flows are turbulent.
 
 Between the laminar and turbulent flow regimes is the transitional flow regime. In this flow regime, the flow goes through several stages of non-linear behavior before it becomes fully turbulent. These stages are highly unstable, the flow can rapidly change from one type of behavior (turbulent spots, e.g.) to another (vortex breakdown, e.g.) and back again. Due to the unstable nature of this type of flow, it is difficult to numerically predict.
 
@@ -70,3 +70,37 @@ water is much easier than to stir honey because the viscosity of water is much s
 ![Viscosity](img/viscosity.png)
 
 ## Process
+
+![Step 1](img/cfd1.png)
+
+![Step 2](img/cfd2.png)
+
+![Step 3](img/cfd3.png)
+
+![Step 4](img/cfd4.png)
+
+![Step 5](img/cfd5.png)
+
+![Step 6](img/cfd6.png)
+
+![Step 7](img/cfd7.png)
+
+![Step 8](img/cfd8.png)
+
+![Step 9](img/cfd9.png)
+
+![Step 10](img/cfd10.png)
+
+![Step 11](img/cfd11.png)
+
+![Step 12](img/cfd12.png)
+
+![Step 13](img/cfd13.png)
+
+![Step 14](img/cfd14.png)
+
+![Step 15](img/cfd15.png)
+
+![Step 16](img/cfd16.png)
+
+![Step 17](img/cfd17.png)

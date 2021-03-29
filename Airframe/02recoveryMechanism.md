@@ -89,7 +89,7 @@ The drag coefficient itself depends on the Reynolds number Re. For small enough 
 
 ### Canopy area
 
-![Area calculation](img/areacalc.png)
+![Area calculation](img/areaCalc.png)
 
 Hints:
 

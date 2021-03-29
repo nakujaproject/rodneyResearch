@@ -6,11 +6,11 @@
 
 name: Optimize images
 on:
-  pull_request:
-    paths:
-      - '**.jpg'
-      - '**.jpeg'
-      - '**.png'
+  # pull_request:
+  #   paths:
+  #     - '**.jpg'
+  #     - '**.jpeg'
+  #     - '**.png'
   push:
     branches:
       - main

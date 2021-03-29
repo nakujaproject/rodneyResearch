@@ -86,68 +86,68 @@ Brim adds a single layer flat area around the base of the model to prevent warpi
 
 ### 1. Open your model to import it inside ultimaker cura software
 
-![Step 1](img/3Dprinting/p1.png)
+[<img src="img/3Dprinting/p1.png" width="75%"/>](img/3Dprinting/p1.png)
 
 ### 2. The model has been imported with the orientation in which you drew it
 
-![Step 2](img/3Dprinting/p2.png)
+[<img src="img/3Dprinting/p2.png" width="75%"/>](img/3Dprinting/p2.png)
 
 ### 3. Change the orientation so that it lies vertically
 
-![Step 3](img/3Dprinting/p3.png)
+[<img src="img/3Dprinting/p3.png" width="75%"/>](img/3Dprinting/p3.png)
 
 ### 4. Click on the lay flat so that it can automatically set the base to the bed
 
-![Step 4](img/3Dprinting/p4.png)
+[<img src="img/3Dprinting/p4.png" width="75%"/>](img/3Dprinting/p4.png)
 
 ### 5. Center the model on the bed
 
-![Step 5](img/3Dprinting/p5.png)
+[<img src="img/3Dprinting/p5.png" width="75%"/>](img/3Dprinting/p5.png)
 
 ### 6. You can scale down the model with the height alone. Click to remove uniform scaling in order to scal e the height alone
 
-![Step 6](img/3Dprinting/p6.png)
+[<img src="img/3Dprinting/p6.png" width="75%"/>](img/3Dprinting/p6.png)
 
 ### 7. The model has been scaled down in terms of height
 
-![Step 7](img/3Dprinting/p7.png)
+[<img src="img/3Dprinting/p7.png" width="75%"/>](img/3Dprinting/p7.png)
 
 ### 8. Click on the top right conrer in order to change the print settings
 
-![Step 8](img/3Dprinting/p8.png)
+[<img src="img/3Dprinting/p8.png" width="75%"/>](img/3Dprinting/p8.png)
 
 ### 9. Change it to normal
 
-![Step 9](img/3Dprinting/p9.png)
+[<img src="img/3Dprinting/p9.png" width="75%"/>](img/3Dprinting/p9.png)
 
 ### 10. Change the layer height to 0.2mm
 
-![Step 10](img/3Dprinting/p10.png)
+[<img src="img/3Dprinting/p10.png" width="75%"/>](img/3Dprinting/p10.png)
 
 ### 11. Maintain the top and bottom thickness to 1.2mm with 6 layers
 
-![Step 11](img/3Dprinting/p11.png)
+[<img src="img/3Dprinting/p11.png" width="75%"/>](img/3Dprinting/p11.png)
 
 ### 12. Change the infill pattern to `Lines` also the temperature set the printing temperature to `223 C` and build plate temperature to `70 C`
 
-![Step 12](img/3Dprinting/p12.png)
+[<img src="img/3Dprinting/p12.png" width="75%"/>](img/3Dprinting/p12.png)
 
 ### 13. Enable print cooling at 100%
 
-![Step 13](img/3Dprinting/p13.png)
+[<img src="img/3Dprinting/p13.png" width="75%"/>](img/3Dprinting/p13.png)
 
 ### 14. Change the build plate adhesion type to `Raft` with a margin of `5mm`
 
-![Step 14](img/3Dprinting/p14.png)
+[<img src="img/3Dprinting/p14.png" width="75%"/>](img/3Dprinting/p14.png)
 
 ### 16. Click on the machine you want to print. This is for machines connected in the network and print
 
-![Step 16](img/3Dprinting/p16.png)
+[<img src="img/3Dprinting/p16.png" width="75%"/>](img/3Dprinting/p16.png)
 
 ### 17. Monitor the prinitng process using a camera
 
-![Step 17](img/3Dprinting/p17.png)
+[<img src="img/3Dprinting/p17.png" width="75%"/>](img/3Dprinting/p17.png)
 
-### 18. Monitor tab where you can find the progess.
+### 18. Monitor tab where you can find the progess
 
-![Step 18](img/3Dprinting/p18.png)
+[<img src="img/3Dprinting/p18.png" width="75%"/>](img/3Dprinting/p18.png)

@@ -40,16 +40,14 @@ jobs:
       with:
         paths: "*.md"
         concurrency: 50
-          markdown: true
+        markdown: true
     
     # The checkout step
     - name: Spellcheck
-      uses: actions/checkout@master
       uses: rojopolis/spellcheck-github-actions@0.11.0
       with:
         # source_files: README.md CHANGELOG.md notes/Notes.md
         task_name: Markdown
 
     - name: 'restqa-404-links'
-      uses: actions/checkout@v2
       uses: restqa/404-links@v1.0.1

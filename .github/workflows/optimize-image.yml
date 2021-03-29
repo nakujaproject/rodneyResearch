@@ -35,7 +35,16 @@ jobs:
         uses: calibreapp/image-actions@master
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-          jpegQuality: '80'
-          jpegProgressive: false
-          pngQuality: '80'
-          webpQuality: '80'
+          # jpegQuality: '80'
+          # jpegProgressive: false
+          # pngQuality: '80'
+          # webpQuality: '80'
+        
+      - name: Create New Pull Request If Needed
+        if: steps.calibre.outputs.markdown != ''
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: Compressed Images Nightly
+          branch-suffix: timestamp
+          commit-message: Compressed Images
+          body: ${{ steps.calibre.outputs.markdown }}

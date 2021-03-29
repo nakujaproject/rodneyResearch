@@ -36,11 +36,10 @@ jobs:
       uses: Youssef1313/markdown-links-verifier@v0.0.9
   
     - name: linkinator
-      uses: actions/checkout@v2
       uses: JustinBeckwith/linkinator-action@v1
-        with:
-          paths: "*.md"
-          concurrency: 50
+      with:
+        paths: "*.md"
+        concurrency: 50
           markdown: true
     
     # The checkout step

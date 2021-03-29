@@ -11,7 +11,6 @@ on:
       - '**.jpg'
       - '**.jpeg'
       - '**.png'
-      - '**.webp'
   push:
     branches:
       - main

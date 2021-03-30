@@ -32,15 +32,13 @@ BLA::Matrix<4, 4> P = {0.039776, 0, 0, 0,
 
 
 // Measurement error covariance
-BLA::Matrix<3, 3> R = {0.039776, 0, 0,
-                        0, 0.012275, 0,
-                        0, 0, 0.018422};
+BLA::Matrix<2, 2> R = {[35.822, 0,
+                        0, 0.0012};
 
 // Process noise covariance
-BLA::Matrix<4, 4> Q = {q, 0, 0, 0,
-                        0, q, 0, 0,
-                        0, 0, q, 0,
-                        0, 0, 0, q};
+BLA::Matrix<3, 3> Q = {0, 0, 0,
+                        0, 0, 0,
+                        0, 0, 1};
 
 // Identity Matrix
 BLA::Matrix<4, 4> I = {1, 0, 0, 0,

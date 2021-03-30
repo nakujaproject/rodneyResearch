@@ -25,77 +25,105 @@ BLA::Matrix<2, 3> H = {1.0, 0, 0,
                         0, 0, 1.0};
 
 // Initial posteriori estimate error covariance
-BLA::Matrix<4, 4> P = {0.039776, 0, 0, 0,
-                        0, 0.012275, 0, 0,
-                        0, 0, 0.018422, 0,
-                        0, 0, 0, 0};
+BLA::Matrix<3, 3> P = {1, 0, 0,
+                        0, 1, 0, 
+                        0, 0, 1};
 
 
 // Measurement error covariance
-BLA::Matrix<3, 3> R = {0.039776, 0, 0,
-                        0, 0.012275, 0,
-                        0, 0, 0.018422};
+BLA::Matrix<2, 2> R = {35.8229, 0,
+                        0, 0.012};
 
 // Process noise covariance
-BLA::Matrix<4, 4> Q = {q, 0, 0, 0,
-                        0, q, 0, 0,
-                        0, 0, q, 0,
-                        0, 0, 0, q};
+BLA::Matrix<3, 3> Q = {q, 0, 0,
+                        0, q, 0, 
+                        0, 0, q};
 
 // Identity Matrix
-BLA::Matrix<4, 4> I = {1, 0, 0, 0,
-                        0, 1, 0, 0,
-                        0, 0, 1, 0,
-                        0, 0, 0, 1};
+BLA::Matrix<3, 3> I = {1, 0, 0,
+                        0, 1, 0,
+                        0, 0, 1};
 
-BLA::Matrix<4, 1> x_hat = {0.0,
-                            0.0,
+BLA::Matrix<3, 1> x_hat = {0.0,
                             0.0,
                             0.0};
 
 
+BLA::Matrix<3, 1> Y = {0.0,
+                       0.0,
+                       0.0};
+
+
+
 void setup(void) {
-	Serial.begin(115200);
-	while (!Serial)
-	delay(10); // will pause Zero, Leonardo, etc until serial console opens
+  Serial.begin(115200);
+  while (!Serial)
+  delay(10); // will pause Zero, Leonardo, etc until serial console opens
 
-	Serial.println("Adafruit MPU6050 test!");
+  Serial.println("Adafruit MPU6050 test!");
 
-	// Try to initialize!
-	if (!mpu.begin()) {
-		Serial.println("Failed to find MPU6050 chip");
-		while (1) {
-			delay(10);
-		}
-	}
-	Serial.println("MPU6050 Found!");
+  // Try to initialize!
+  if (!mpu.begin()) {
+    Serial.println("Failed to find MPU6050 chip");
+    while (1) {
+      delay(10);
+    }
+  }
+  Serial.println("MPU6050 Found!");
 
-	mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
-	Serial.print("Accelerometer range set to: ");
+  mpu.setAccelerometerRange(MPU6050_RANGE_8_G);
+  Serial.print("Accelerometer range set to: ");
 
-	mpu.setGyroRange(MPU6050_RANGE_500_DEG);
-	Serial.print("Gyro range set to: ");
+  mpu.setGyroRange(MPU6050_RANGE_500_DEG);
+  Serial.print("Gyro range set to: ");
 
-	mpu.setFilterBandwidth(MPU6050_BAND_5_HZ);
-	Serial.print("Filter bandwidth set to: ");
+  mpu.setFilterBandwidth(MPU6050_BAND_5_HZ);
+  Serial.print("Filter bandwidth set to: ");
 
-	Serial.println("");
-	delay(100);
+  Serial.println("");
+  delay(100);
 
-	if (!bmp.begin()) {
-		Serial.println("Could not find a valid BMP085 sensor, check wiring!");
-		while (1) {}
-	}
+  if (!bmp.begin()) {
+    Serial.println("Could not find a valid BMP085 sensor, check wiring!");
+    while (1) {}
+  }
 }
 
 void loop() {
-	/* Get new sensor events with the readings */
-	sensors_event_t a, g, temp;
-	mpu.getEvent(&a, &g, &temp);
+  /* Get new sensor events with the readings */
+  sensors_event_t a, g, temp;
+  mpu.getEvent(&a, &g, &temp);
 
     altitude = bmp.readAltitude(seaLevelPressure_hPa * 100);
-	acceleration = a.acceleration.z;
+  acceleration = a.acceleration.z;
 
 
-	delay(500);
+    BLA::Matrix<2, 1> Z = {altitude,
+                        acceleration};
+
+    BLA::Matrix<3, 1> x_hat_minus = A * x_hat;
+
+    BLA::Matrix<3, 3> P_minus = A * P * (~A) + Q;
+
+    BLA::Matrix<3, 2> K  = P_minus * (~H) * ((H * P_minus * (~H) + R)).Inverse();
+
+    x_hat = x_hat_minus + K * (Z - (H * x_hat_minus));
+
+    P = (I - K * H) * P_minus;
+    
+    Y = Z - H * x_hat_minus;
+    
+    float s,v,ac;
+    
+    s = Y(0);
+    v = Y(1);
+    ac = Y(2);
+    
+    Serial.print(s);Serial.print("\t");
+    Serial.print(v);Serial.print("\t");
+    Serial.println(ac);Serial.println("\t");
+
+    delay(500);
+
+
 }

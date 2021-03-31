@@ -42,11 +42,11 @@ jobs:
 #         markdown: true
     
     # The checkout step
-#     - name: Spellcheck
-#       uses: rojopolis/spellcheck-github-actions@0.11.0
-#       with:
-#         # source_files: README.md CHANGELOG.md notes/Notes.md
-#         task_name: Markdown
+    - name: Spellcheck
+      uses: rojopolis/spellcheck-github-actions@0.11.0
+      with:
+        # source_files: README.md CHANGELOG.md notes/Notes.md
+        task_name: Markdown
 
-    - name: 'restqa-404-links'
-      uses: restqa/404-links@v1.0.1
+#     - name: 'restqa-404-links'
+#       uses: restqa/404-links@v1.0.1

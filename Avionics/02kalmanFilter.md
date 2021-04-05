@@ -45,7 +45,7 @@ For a start we will try to estimate a scalar constant, altitude reading from a s
 
 ## Let's build our model
 
-![Singel variable kalman filter](img/singlevarKalman.png)
+![Singel variable kalman filter](img/singleVarKalman.png)
 
 In each step we have tried and reduced the equations to a very simple form.
 Above all, we have a 1 dimensional signal problem, so every entity in our model is a numerical value, not a matrix.

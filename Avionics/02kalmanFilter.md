@@ -1,34 +1,37 @@
 # Kalman Filter
 
-As I mentioned earlier, it's nearly impossible to grasp the full meaning of Kalman Filter by starting from definitions and complicated equations (at least for us mere mortals).
+It's nearly impossible to grasp the full meaning of Kalman Filter by starting from definitions and complicated equations (at least for us mere mortals).
 
-Our purpose is to find Estimate of X at state k, the estimate of the signal x based on the current and previous readings. And we wish to find it for each consequent k's.
+Generally, our purpose is to find Estimate of X at state k, the estimate of the signal x based on the current and previous readings. And we wish to find it for each consequent k's.
 
 You can trust the gyroscope for short term measurements and trust acceleration for long term measurements.
 
-> Kalman filter finds the most optimum averaging factor for each consequent state. Also somehow remembers a little bit about the past states.
+A small take away
+> Kalman filter finds the most optimum averaging factor for each consequent state also, somehow remembers a little about the past states.
 
 ## General rule of thumb
+
+We will begin by studing the bare bones of kalman filter before implementing it. Though the technical jargon may be tough, just hang in there.
 
 ![kalman process](img/kalmanProcess.png)
 
 ### Definitions
 
+Some of the definitions we need to cover are listed here:
+
 **Current state** This is the current state of the system.
 
 ![System state](img/currentState.png)
 
-**previous state** This is the previous state of the system.
+**Previous state** This is the previous state of the system.
 
 ![Previous state](img/previousState.png)
 
-**priori state** This is the estimated state at time k given observations upto and including time k.
+**Priori state** This is the estimated state at time k given observations upto and including time k.
 
 ![Priori state](img/prioriState.png)
 
-The system state can be observed through `Zk` which is the Hidden Markov Model.
-
-The state of the system is given by 
+The system state can be observed through `Zk` which is the Hidden Markov Model. The state of the system is given by,
 ![System State](img/systemState.png)
 
 `A` is the state transition and is applied to the previous state
@@ -45,7 +48,7 @@ The state of the system is given by
 
 ### Process
 
-#### Predict
+#### A. Predict
 
 ##### 1. Estimate the current state
 
@@ -55,7 +58,7 @@ We use extra input to estimate the state at time k called the priori state
 
 This matrix estimates how much we trust our current values of estimated state. The smaller ther value the more we trust it. Error covariance will increase since we last updated the estimate of the state, therefore we multiplied the error covariance matrix by the state transition model A and its transpose At and current process noise Qk
 
-#### Update
+#### B. Update
 
 ##### 1. Compute the difference bewtween measurement `Zk` and priori state
 
@@ -145,13 +148,14 @@ Matrix `P` is your initial prediction of the covariance. We'll just pick an arbi
 
 OK, we should start from somewhere, such as k=0. We should find or assume some initial state. Here, we throw out some initial values. Let's assume estimate of X0 = 0, and P0 = 1. Then why didn't we choose P0 = 0 for example? It's simple. If we chose that way, this would mean that there's no noise in the environment, and this assumption would lead all the consequent Estimate of X at state k to be zero (remaining as the initial state). So we choose P0 something other that zero.
 
+![Iteration values](img/singleUpdates.jpeg)
+
 ```c++
 #include <Adafruit_BMP085.h>
 
 Adafruit_BMP085 bmp;
 
 float altitude, estimated_altitude;
-
 float f_1 = 1.00000; //cast as float
 float update_x = 0;
 float prev_x = 0;
@@ -162,7 +166,6 @@ float error_cov = 0.05;
 float process_noise = 1e-3;
 float x_temp = 0;
 float p_temp = 0;
-
 
 void setup() {
   // open a serial connection to display values
@@ -202,7 +205,6 @@ float singleVarKalmanCal (float altitude) {
 }
 
 ```
-![Iteration values](img/singleUpdates.jpeg)
 
 ## Multiple variable kalman
 
@@ -230,7 +232,6 @@ Adafruit_BMP085 bmp;
 Adafruit_MPU6050 mpu;
 
 float altitude, acceleration;
-
 float q = 0.0001;
 
 // The system dynamics
@@ -246,7 +247,6 @@ BLA::Matrix<2, 3> H = {1.0, 0, 0,
 BLA::Matrix<3, 3> P = {1, 0, 0,
                         0, 1, 0, 
                         0, 0, 1};
-
 
 // Measurement error covariance
 BLA::Matrix<2, 2> R = {35.8229, 0,
@@ -265,7 +265,6 @@ BLA::Matrix<3, 3> I = {1, 0, 0,
 BLA::Matrix<3, 1> x_hat = {0.0,
                             0.0,
                             0.0};
-
 
 BLA::Matrix<2, 1> Y = {0.0,
                        0.0};
@@ -342,8 +341,6 @@ void loop() {
     Serial.println(ac);Serial.println("\t");
 
     delay(500);
-
-
 }
 ```
 

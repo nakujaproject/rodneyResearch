@@ -1,5 +1,7 @@
 # Kalman Filter
 
+DISCLAIMER: This guide teaches amateur-level Kalman filtering for hobbyists. If lives depend on your Kalman filter (such as manned aviation, ICBMs, medical instruments, etc), do not rely on this guide! I skip a lot of details necessary for serious use!
+
 It's nearly impossible to grasp the full meaning of Kalman Filter by starting from definitions and complicated equations (at least for us mere mortals).
 
 Generally, our purpose is to find Estimate of X at state k, the estimate of the signal x based on the current and previous readings. And we wish to find it for each consequent k's.

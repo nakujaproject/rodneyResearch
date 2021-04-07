@@ -48,6 +48,10 @@ The system state can be observed through `Zk` which is the Hidden Markov Model. 
 
 `H` is the observation model used to map true state space to observed state space.
 
+![Kalman gain](img/kalmanGain.png)
+
+`Kalman gain` is the difference between measured and estimated values.
+
 ### Process
 
 #### A. Predict

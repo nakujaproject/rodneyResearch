@@ -138,6 +138,16 @@ We have no such control signal `uk`, and it's out of the game. As the signal is 
 1557.76
 ```
 
+Matrix ` Q ` represents process noise. It decides accuracy and time lag in the estimated value.
+Higher ` Q ` results in a higher gain and hence more weight to the noisy measurements. The estimation accuracy is thereby compromised.
+Lower ` Q ` leads to a better estimation accuracy but a time lag may be introduced to the estimated value.
+` Q ` is therefore a tuning factor and a trade-off between estimation accuracy and time lag is made when deciding this value.
+
+Matrix ` R ` represents measurement noise. It represents sensor noise characteristics.
+` R ` is calculated from the sensor accuracy which is represented using a standard deviation of measured values from true values.
+` Variance ` = ` sd ^ 2 `
+` R ` = ` Variance ` * ` eye(3,3) `
+
 Matrix ` H ` is what you need to multiply the incoming measurement to convert it to a state. Since we get the altitude directly, we just multiply by 1.
 `H = 1`
 Matrix `B` is the control matrix. It's a constant altitude and there's no input in the model we can change to affect anything, so we'll set it to 0.

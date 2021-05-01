@@ -362,7 +362,15 @@ void loop() {
 
 ## Conclusion
 
-I hope that this guide was useful to you. This is a living document.
+I hope that this guide was useful to you. This is a living document. I hope to add new topics to this tutorial as time and budget allow. The following list contains the future topics. Some of them are necessary for in-depth understanding of the Kalman Filter.
+- Kalman Filter initialization.
+- Extended Kalman Filter (the non-linear version of the Kalman filter).
+- Unscented Kalman Filter.
+- Non-Gaussian noise Kalman Filter (how to generalize the Kalman Filter when noise distribution is Non-Gaussian).
+- Stability and Divergence (how to design stable Kalman Filter that does not diverge).
+- Sub-optimal filtering (how to deal with cases where the measurement uncertainty is higher than anticipated).
+- Simplification of Kalman Filter for faster computation performance.
+- Kalman Filter implementation.
 
 ## References
 
@@ -372,3 +380,4 @@ I hope that this guide was useful to you. This is a living document.
 3. [Simultaneous Localization and Mapping (SLAM)](http://prism2.mem.drexel.edu/~billgreen/slam/slam.html) : Seeing the matrices in the PowerPoint slides inspired me to write this guide. Most of my examples are variations of examples in these slides.
 4. [A 3D State Space Formulation of a Navigation Kalman Filter for Autonomous Vehicles](http://www.frc.ri.cmu.edu/~alonzo/pubs/reports/kalman_V2.pdf) : This text goes in-depth about using Kalman filters in robotics, and it has great introductory material.
 5. [Optimal Filtering](http://www.amazon.com/Optimal-Filtering-Dover-Books-Engineering/dp/0486439380) : This book goes into detail on using Kalman filters.
+6. [Kalman Filter website](https://www.kalmanfilter.net/)

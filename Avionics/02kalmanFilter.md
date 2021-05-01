@@ -381,3 +381,4 @@ I hope that this guide was useful to you. This is a living document. I hope to a
 4. [A 3D State Space Formulation of a Navigation Kalman Filter for Autonomous Vehicles](http://www.frc.ri.cmu.edu/~alonzo/pubs/reports/kalman_V2.pdf) : This text goes in-depth about using Kalman filters in robotics, and it has great introductory material.
 5. [Optimal Filtering](http://www.amazon.com/Optimal-Filtering-Dover-Books-Engineering/dp/0486439380) : This book goes into detail on using Kalman filters.
 6. [Kalman Filter website](https://www.kalmanfilter.net/)
+7. [Greg Website](http://greg.czerniak.info/guides/kalman1/)
